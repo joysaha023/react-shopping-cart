@@ -12,6 +12,10 @@ function App() {
   .then(data => setCartsData(data))
  },[])
 
+ const handleClick = () => {
+  console.log("click event")
+ }
+
   return (
     <>
       <div className='flex justify-center gap-3'>
