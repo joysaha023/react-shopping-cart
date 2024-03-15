@@ -12,15 +12,15 @@ function App() {
   .then(data => setCartsData(data))
  },[])
 
- const handleClick = () => {
-  console.log("click event")
+ const handleClick = (singleCart) => {
+  console.log(singleCart)
  }
 
   return (
     <>
       <div className='flex justify-center gap-3'>
         <div className='basis-[75%]'>
-             <Cards cartsData={cartsData}></Cards>
+             <Cards cartsData={cartsData} handleClick={handleClick}></Cards>
         </div>
         <div className='basis-[25%]'>
               <Cart></Cart>
