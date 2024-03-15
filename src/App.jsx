@@ -1,15 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
+import Cards from './components/cards/Cards'
+import Cart from './components/cart/Cart'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+ const [cartsData, setCartsData] = useState([])
+
+ useEffect(() => {
+  fetch('fakeapi.json')
+  .then(res => res.json())
+  .then(data => setCartsData(data))
+ },[])
 
   return (
     <>
-      <div>
-        <h4 className='bg-blue-800'>hello</h4>
+      <div className='flex justify-center gap-3'>
+        <div className='basis-[75%]'>
+             <Cards cartsData={cartsData}></Cards>
+        </div>
+        <div className='basis-[25%]'>
+              <Cart></Cart>
+        </div>
       </div>
     </>
   )
