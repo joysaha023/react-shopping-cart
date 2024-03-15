@@ -5,6 +5,7 @@ import './App.css'
 
 function App() {
  const [cartsData, setCartsData] = useState([])
+ const [cartItems, setCartItems] = useState([])
 
  useEffect(() => {
   fetch('fakeapi.json')
@@ -13,7 +14,13 @@ function App() {
  },[])
 
  const handleClick = (singleCart) => {
-  console.log(singleCart)
+  const isExist = cartItems.find((pd) => pd.id == singleCart.id);
+  if(!isExist) {
+    setCartItems([...cartItems, singleCart])
+  }
+  else{
+    alert("already in cart")
+  }
  }
 
   return (
