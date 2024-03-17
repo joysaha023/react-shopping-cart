@@ -30,7 +30,7 @@ function App() {
              <Cards cartsData={cartsData} handleClick={handleClick}></Cards>
         </div>
         <div className='basis-[25%]'>
-              <Cart></Cart>
+              <Cart cartItems={cartItems}></Cart>
         </div>
       </div>
     </>
