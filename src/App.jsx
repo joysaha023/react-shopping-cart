@@ -23,6 +23,11 @@ function App() {
   }
  }
 
+ const handleDeleteBtn = (id) => {
+  const newCart =cartItems.filter(item => item.id != id)
+  setCartItems(newCart)
+ }
+
   return (
     <>
       <div className='flex justify-center gap-3'>
@@ -30,7 +35,7 @@ function App() {
              <Cards cartsData={cartsData} handleClick={handleClick}></Cards>
         </div>
         <div className='basis-[25%]'>
-              <Cart cartItems={cartItems}></Cart>
+              <Cart handleDeleteBtn={handleDeleteBtn} cartItems={cartItems}></Cart>
         </div>
       </div>
     </>
